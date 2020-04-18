@@ -7,5 +7,10 @@ pipeline {
 				echo 'Test stage ...'
 			}
 		}
+		stage('Check Param') {
+			steps {
+				echo 'The value of the param is $ssh_creds'
+			}
+		}
 	}
 }
