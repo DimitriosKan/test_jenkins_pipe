@@ -16,10 +16,9 @@ pipeline {
 			steps {
 				withCredentials([
 					sshUserPrivateKey (credentialsId: 'thenexus', keyFileVariable: 'PEM')
-				])
-				stage('Runs ssh'){
+				]) {
 					echo "$PEM"
-					"ssh -i ${PEM} ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com"
+					powershell "ssh -i ${PEM} ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com"
 				}
 			}
 		}
