@@ -13,11 +13,13 @@ pipeline {
 			}
 		}
 		stage('Execute command on host') {
-			environment {
-				SERVICE_CREDS = credentials('thenexus')
-			}
 			steps {
-				sh 'pwd'
+				withCredentials([
+					sshUserPrivateKey (credentials: 'thenexus', keyFileVariable: 'PEM')
+				]) {
+					"$PEM"
+					sh "thing ${PEM}"
+				}
 			}
 		}
 	}
