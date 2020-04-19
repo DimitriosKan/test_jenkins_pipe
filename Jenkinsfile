@@ -10,7 +10,7 @@ pipeline {
 		stage('Check Param') {
 			steps {
 				echo 'The value of the param is $ssh_creds'
-				bat 'wmic computersystem get name'
+				//bat 'wmic computersystem get name'
 			}
 		}
 		stage('Execute command on host') {
@@ -18,12 +18,10 @@ pipeline {
 				withCredentials([
 					sshUserPrivateKey (credentialsId: 'thenexus', keyFileVariable: 'PEM')
 				]) {
-					bat 'echo %PEM%'
-					bat '''
-						ssh -i %PEM% ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com
-						pwd
-					'''
-					bat 'scp -i %PEM% push.sh ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com:/home/ec2-user/downloads'
+					echo $PEM
+					ssh -i $PEM ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com
+					pwd
+					scp -i $PEM push.sh ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com:/home/ec2-user/downloads
 				}
 			}
 		}
