@@ -39,7 +39,7 @@ pipeline {
 				withCredentials([
 					sshUserPrivateKey (credentialsId: 'thenexus', keyFileVariable: 'PEM')
 				]) {
-					sh "ssh -T -i ${PEM} -o StrictHostKeyChecking=no ec2-user@ec2-34-244-126-165.eu-west-1.compute.amazonaws.com pwd
+					sh "ssh -T -i ${PEM} -o StrictHostKeyChecking=no ec2-user@ec2-34-244-126-165.eu-west-1.compute.amazonaws.com pwd"
 					sh "ssh -T -i ${PEM} -o StrictHostKeyChecking=no ec2-user@ec2-34-244-126-165.eu-west-1.compute.amazonaws.com ls /home/ec2-user/"
 				}
 			}
