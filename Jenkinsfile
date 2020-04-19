@@ -17,8 +17,7 @@ pipeline {
 				withCredentials([
 					sshUserPrivateKey (credentials: 'thenexus', keyFileVariable: 'PEM')
 				]) {
-					"$PEM"
-					sh "thing ${PEM}"
+					echo "$PEM"
 				}
 			}
 		}
