@@ -20,10 +20,9 @@ pipeline {
 				]) {
 					sh 'pwd'
 					sh "echo ${PEM}"
-					sh "cat ${PEM} >> /home/ec2-user/test.txt"
-					sh "ssh -T -i ${PEM} ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com"
+					//sh "ssh -T -i ${PEM} ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com"
 					sh 'pwd'
-					//scp -i $PEM push.sh ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com:/home/ec2-user/downloads
+					sh "scp -i ${PEM} push.sh ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com:/home/ec2-user/downloads"
 				}
 			}
 		}
