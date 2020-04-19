@@ -10,6 +10,7 @@ pipeline {
 		stage('Check Param') {
 			steps {
 				echo 'The value of the param is $ssh_creds'
+				bat 'wmic computersystem get name'
 			}
 		}
 		stage('Execute command on host') {
