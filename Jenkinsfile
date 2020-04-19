@@ -15,7 +15,7 @@ pipeline {
 		stage('Execute command on host') {
 			steps {
 				sshagent (credentials: ['thenexus']) {
-					pwd
+					ssh -i ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com
 				}
 			}
 		}
