@@ -21,7 +21,7 @@ pipeline {
 					sh 'pwd'
 					sh "echo ${PEM}"
 					sh "cat ${PEM}"
-					sh "cp ${PEM} /home/ec2-user"
+					sh "sudo cp ${PEM} /home/ec2-user"
 					sh "ssh -T -i ${PEM} ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com"
 					sh 'pwd'
 					//scp -i $PEM push.sh ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com:/home/ec2-user/downloads
