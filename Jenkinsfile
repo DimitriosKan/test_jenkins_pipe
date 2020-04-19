@@ -12,5 +12,12 @@ pipeline {
 				echo 'The value of the param is $ssh_creds'
 			}
 		}
+		stage('Execute command on host') {
+			steps {
+				sshagent (credentials: ['thenexus']) {
+					pwd
+				}
+			}
+		}
 	}
 }
