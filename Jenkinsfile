@@ -15,7 +15,7 @@ pipeline {
 		stage('Execute command on host') {
 			steps {
 				withCredentials([
-					sshUserPrivateKey (credentials: 'thenexus', keyFileVariable: 'PEM')
+					sshUserPrivateKey (credentialsId: 'thenexus', keyFileVariable: 'PEM')
 				]) {
 					echo "$PEM"
 				}
