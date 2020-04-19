@@ -19,6 +19,7 @@ pipeline {
 					sshUserPrivateKey (credentialsId: 'thenexus', keyFileVariable: 'PEM')
 				]) {
 					bat 'echo %PEM%'
+					echo %PEM%
 					bat 'scp -i %PEM% push.sh ec2-user@ec2-63-35-228-112.eu-west-1.compute.amazonaws.com:/home/ec2-user/downloads'
 				}
 			}
