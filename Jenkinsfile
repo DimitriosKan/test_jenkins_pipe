@@ -29,8 +29,8 @@ pipeline {
 		stage ('Pull file from bucket') {
 			steps {
 				withAWS(credentials: 'aws_creds', region: 'eu-west-1') {
-					s3Download bucket: 'fresh-test-bucket', file: 'random.txt', path: '/home/ec2-user/random.txt'
 					sh 'ls'
+					s3Download bucket: 'fresh-test-bucket', file: 'random.txt', path: '/home/ec2-user/random.txt'
 				}
 			}
 		}
