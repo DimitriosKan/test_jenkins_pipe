@@ -33,7 +33,7 @@ pipeline {
 					sh 'ls'
 					//sh 'rm random.txt'
 					sh 'ls'
-					s3Download bucket: 'fresh-test-bucket', file: '/home/ec2-user/some.txt', path: 'random.txt'
+					s3Download bucket: 'fresh-test-bucket', file: '/home/ec2-user/', path: 'random.txt'
 					sh 'ls'
 				}
 			}
