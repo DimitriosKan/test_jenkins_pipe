@@ -11,16 +11,18 @@ pipeline {
 		}
 		stage('Populate file') {
 			steps {
-				sh '''
-				cat <<'EOF' > test.json
-				{
-					"Root": [ {
-						"Branch": [
-						{"Key": "Value"}
-						]
+				script {
+					sh '''
+					cat <<'EOF' > test.json
+					{
+						"Root": [ {
+							"Branch": [
+								{"Key": "Value"}
+							]
 						}]
+					}
+					'''
 				}
-				'''
 			}
 		}
 		stage('Where am I ?') {
