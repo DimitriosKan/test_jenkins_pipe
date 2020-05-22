@@ -11,7 +11,16 @@ pipeline {
 		}
 		stage('Populate file') {
 			steps {
-				sh (returnStatus: true, script: 'gcloud compute instances list --format="json" > test.json')
+				sh '''
+				cat <<'EOF' > test.json
+				{
+					"Root": [ {
+						"Branch": [
+						{"Key": "Value"}
+						]
+						}]
+				}
+				'''
 			}
 		}
 		stage('Where am I ?') {
@@ -23,11 +32,12 @@ pipeline {
 			steps {
 				script {
 					def text = readJSON file: 'test.json'
-					out = text['creationTimestamp']
+					out = text['Root']
 					echo out
 				}
 			}
 		}
+// 				sh (returnStatus: true, script: 'gcloud compute instances list --format="json"')
 		// stage('Test for readJSON') {
 		// 	steps {
 		// 		script {
