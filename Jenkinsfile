@@ -26,7 +26,7 @@ pipeline {
 			steps {
 				script {
 					// ansiColor("xterm")
-					echo 'Test stage ...'
+					echo 'Test stage AGAIN ...'
 				}
 			}
 		}
