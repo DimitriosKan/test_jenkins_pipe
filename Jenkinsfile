@@ -34,7 +34,7 @@ pipeline {
 			steps {
 				script {
 					def text = readJSON file: './Parameters/new-test.json'
-					out = text['Root']
+					out = text['Root'][0]['Branch'][0]['Key']
 					echo out
 				}
 			}
