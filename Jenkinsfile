@@ -15,18 +15,22 @@ pipeline {
 				sh 'cat ./test.txt'
 			}
 		}
-		// stage('Read file') {
-		// 	steps {
-		//
-		// 	}
-		// }
-		stage('Test for readJSON') {
+		stage('Read file') {
 			steps {
 				script {
-					def text = readJSON text: 'gcloud compute instances list --format="json"'
-					echo '${text}'
+					text = readJSON file: './test.txt'
+					out = text['creationTimestamp']
+					echo '${out}'
 				}
 			}
 		}
+		// stage('Test for readJSON') {
+		// 	steps {
+		// 		script {
+		// 			def text = readJSON text: 'gcloud compute instances list --format="json"'
+		// 			echo '${text}'
+		// 		}
+		// 	}
+		// }
 	}
 }
