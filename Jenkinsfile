@@ -24,7 +24,7 @@ pipeline {
 				script {
 					def text = readJSON file: 'test.json'
 					out = text['creationTimestamp']
-					echo '${text}'
+					echo text
 				}
 			}
 		}
