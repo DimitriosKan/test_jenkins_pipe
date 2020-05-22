@@ -33,7 +33,7 @@ pipeline {
 		stage('Read file') {
 			steps {
 				script {
-					def text = readJSON file: 'test.json'
+					def text = readJSON file: './Parameters/new-test.json'
 					out = text['Root']
 					echo out
 				}
