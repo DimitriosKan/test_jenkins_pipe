@@ -11,8 +11,12 @@ pipeline {
 		}
 		stage('Populate file') {
 			steps {
-				sh (returnStatus: true, script: 'gcloud compute instances list --format="json" > ./test.txt')
-				sh 'cat ./test.txt'
+				sh (returnStatus: true, script: 'gcloud compute instances list --format="json" > test.txt')
+			}
+		}
+		stage('Where am I ?') {
+			steps {
+				sh 'pwd'
 			}
 		}
 		stage('Read file') {
@@ -20,7 +24,7 @@ pipeline {
 				script {
 					text = readJSON file: './test.txt'
 					out = text['creationTimestamp']
-					echo '${out}'
+					echo '${text}'
 				}
 			}
 		}
