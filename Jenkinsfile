@@ -9,10 +9,15 @@ pipeline {
 				}
 			}
 		}
-		stage('Trollolol') {
+		stage('Populate file') {
 			steps {
-				sh 'gcloud compute instances list --format="json" > ./test.txt && '
+				sh (returnStatus: true, script: 'gcloud compute instances list --format="json" > ./test.txt')
 				sh 'cat ./test.txt'
+			}
+		}
+		stage('Read file') {
+			steps {
+
 			}
 		}
 		stage('Test for readJSON') {
