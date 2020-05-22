@@ -18,10 +18,8 @@ pipeline {
 		}
 		stage('Trollolol') {
 			steps {
-				script {
-					// ansiColor("xterm")
-					sh 'pwd'
-				}
+				// ansiColor("xterm")
+				sh 'pwd'
 			}
 		}
 		stage('Just a Test Stage V2') {
