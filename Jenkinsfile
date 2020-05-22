@@ -14,10 +14,16 @@ pipeline {
 				sh 'pwd'
 			}
 		}
+		stage('Trollolol') {
+			steps {
+				sh 'gcloud compute instances list --format="json" > ./test.txt'
+				sh 'cat ./test.txt'
+			}
+		}
 		stage('Test for readJSON') {
 			steps {
 				script {
-					text = readJSON text: 'gcloud compute instances list --format="json"'
+					def text = readJSON text: 'gcloud compute instances list --format="json"'
 					echo '${text}'
 				}
 			}
