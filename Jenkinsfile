@@ -1,32 +1,33 @@
 pipeline {
 	agent any
-	// options {
-	// 	ansiColor("xterm")
-	// 	buildDiscarder(logRotator(numToKeepStr:"5"))
-	// 	disableConcurrentBuilds()
-	// 	timeout(time: 15, unit: "MINUTES")
-	// 	timestamps()
-	// }
+	options {
+		ansiColor("xterm")
+		buildDiscarder(logRotator(numToKeepStr:"5"))
+		disableConcurrentBuilds()
+		timeout(time: 15, unit: "MINUTES")
+		timestamps()
+	}
 	stages {
 		stage('Just a Test Stage') {
 			steps {
 				script {
-					// ansiColor("xterm")
+					ansiColor("xterm")
 					echo 'Test stage ...'
 				}
 			}
 		}
 		stage('Trollolol') {
 			steps {
-				// ansiColor("xterm")
+				ansiColor("xterm")
 				sh 'pwd'
 			}
 		}
-		stage('Just a Test Stage V2') {
+		stage('Test for readJSON') {
 			steps {
 				script {
-					// ansiColor("xterm")
-					echo 'Test stage AGAIN ...'
+					ansiColor("xterm")
+					text = readJSON text: 'gcloud compute instances list --format="json"'
+					echo '${text}'
 				}
 			}
 		}
