@@ -15,11 +15,11 @@ pipeline {
 				sh 'cat ./test.txt'
 			}
 		}
-		stage('Read file') {
-			steps {
-
-			}
-		}
+		// stage('Read file') {
+		// 	steps {
+		//
+		// 	}
+		// }
 		stage('Test for readJSON') {
 			steps {
 				script {
