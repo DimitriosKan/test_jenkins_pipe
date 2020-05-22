@@ -16,7 +16,7 @@ pipeline {
 		}
 		stage('Trollolol') {
 			steps {
-				sh 'gcloud compute instances list --format="json" > ./test.txt'
+				sh 'gcloud compute instances list --format="json" > ./test.txt && '
 				sh 'cat ./test.txt'
 			}
 		}
