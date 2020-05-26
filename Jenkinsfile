@@ -25,26 +25,19 @@ pipeline {
 				script {
 					sh '''
 					cat <<'EOF' > test.json
+					[
 					{
-						"Root": [ {
-							"Branch": [
-								{"Key": "Value"}
-							]
-						}]
+						"something": "other",
+						"somethingelse": "otherelse"
+					},{
+						"something": "other",
+						"somethingelse": "otherelse"
 					}
+					]
 					'''
 				}
 			}
 		}
-
-		// [
-		// {
-		// 	"something": "other",
-		// 	"somethingelse": "otherelse"
-		// },{
-		//
-		// }
-		// ]
 
 		stage('Where am I ?') {
 			steps {
