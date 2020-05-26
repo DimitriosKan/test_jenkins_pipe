@@ -9,7 +9,7 @@ pipeline {
 			)
 	}
 	environment {
-		JSON_FILE = "./Parameters/new-test.json"
+		JSON_FILE = "${WORKSPACE}/Parameters/new-test.json"
 		TYPE = "${params.REQUIRE_TYPE}"
 	}
 	stages {
