@@ -25,15 +25,15 @@ pipeline {
 				script {
 					sh '''
 					cat <<'EOF' > test.json
-					[
-					{
-						"something": "other",
-						"somethingelse": "otherelse"
-					},{
-						"something": "other",
-						"somethingelse": "otherelse"
-					}
-					]
+[
+{
+	"something": "other",
+	"somethingelse": "otherelse"
+},{
+	"something": "other",
+	"somethingelse": "otherelse"
+}
+]
 					'''
 				}
 			}
@@ -56,13 +56,13 @@ pipeline {
 			}
 		}
 // 				sh (returnStatus: true, script: 'gcloud compute instances list --format="json"')
-		// stage('Test for readJSON') {
-		// 	steps {
-		// 		script {
-		// 			def text = readJSON text: 'gcloud compute instances list --format="json"'
-		// 			echo '${text}'
-		// 		}
-		// 	}
-		// }
+		stage('Test for readJSON text') {
+			steps {
+				script {
+					def text = readJSON text: 'gcloud compute instances list --format="json"'
+					echo text
+				}
+			}
+		}
 	}
 }
