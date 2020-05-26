@@ -25,15 +25,15 @@ pipeline {
 				script {
 					sh '''
 					cat <<'EOF' > test.json
-					[
-					{
-						"something": "other",
-						"somethingelse": "otherelse"
-					},{
-						"something": "other",
-						"somethingelse": "otherelse"
-					}
-					]
+[
+{
+	"something": "other",
+	"somethingelse": "otherelse"
+},{
+	"something": "other",
+	"somethingelse": "otherelse"
+}
+]
 					'''
 				}
 			}
