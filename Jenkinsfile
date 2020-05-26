@@ -59,7 +59,8 @@ pipeline {
 		stage('Test for readJSON text') {
 			steps {
 				script {
-					raw = 'gcloud compute instances list --format="json"'
+					raw = sh 'gcloud compute instances list --format="json"'
+					echo raw
 					def text = readJSON text: raw['cpuPlatform']
 					echo text
 					// out = text['cpuPlatform']
