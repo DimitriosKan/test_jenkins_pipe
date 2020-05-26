@@ -61,8 +61,8 @@ pipeline {
 				script {
 					def text = readJSON text: 'gcloud compute instances list --format="json"'
 					echo text
-					out = text['cpuPlatform']
-					echo out
+					// out = text['cpuPlatform']
+					// echo out
 				}
 			}
 		}
