@@ -60,8 +60,8 @@ pipeline {
 			steps {
 				script {
 					RAW = sh (returnStdout: true, script:'gcloud compute instances list --format="json"')
-					echo RAW
-					def text = readJSON text: RAW['cpuPlatform']
+					// echo RAW
+					def text = readJSON text: RAW
 					echo text
 					out = text['cpuPlatform']
 					echo out
