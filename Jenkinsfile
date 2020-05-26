@@ -55,7 +55,7 @@ pipeline {
 			steps {
 				script {
 					// put a varaible in here
-					def text = readJSON file: '${JSON_FILE}'
+					def text = readJSON file: JSON_FILE
 					// put a variable in here
 					out = text['${TYPE}'][0]['Branch'][0][KEY]
 					echo out
