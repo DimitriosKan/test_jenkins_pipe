@@ -61,7 +61,7 @@ pipeline {
 				script {
 					RAW = sh 'gcloud compute instances list --format="json"'
 					// echo raw
-					def text = readJSON text: RAW
+					def text = readJSON text: RAW['cpuPlatform']
 					echo text
 					out = text['cpuPlatform']
 					echo out
