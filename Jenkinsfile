@@ -9,7 +9,7 @@ pipeline {
 			)
 	}
 	environment {
-		JSON_FILE = "${WORKSPACE}/Parameters/new-test.json"
+		JSON_FILE = "Parameters/new-test.json"
 		TYPE = "${params.REQUIRE_TYPE}"
 	}
 	stages {
@@ -55,7 +55,7 @@ pipeline {
 			steps {
 				script {
 					// put a varaible in here
-					def text = readJSON file: '${JSON_FILE}'
+					def text = readJSON file: JSON_FILE
 					// put a variable in here
 					out = text['${TYPE}'][0]['Branch'][0][KEY]
 					echo out
