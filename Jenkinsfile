@@ -57,7 +57,7 @@ pipeline {
 					// put a varaible in here
 					def text = readJSON file: './Parameters/new-test.json'
 					// put a variable in here
-					out = text['${TYPE}'][0]['Branch'][0][KEY]
+					out = text[TYPE][0]['Branch'][0][KEY]
 					echo out
 				}
 			}
