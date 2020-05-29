@@ -62,7 +62,6 @@ pipeline {
 				script {
 					sh '''
 						sed -e "s/other//g" "${TEST_FILE}"
-						cat "test.json"
 					'''
 				}
 			}
