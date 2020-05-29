@@ -56,18 +56,18 @@ pipeline {
 			}
 		}
 // 				sh (returnStatus: true, script: 'gcloud compute instances list --format="json"')
-		stage('Test for readJSON text') {
-			steps {
-				script {
-					RAW = sh (returnStdout: true, script:'gcloud compute instances list --format="json"')
-					// echo is working AND getting the correct output
-					echo RAW
-					def text = readJSON text: RAW[0]['cpuPlatform']
-					echo text
-					out = text['cpuPlatform']
-					echo out
-				}
-			}
-		}
+		// stage('Test for readJSON text') {
+		// 	steps {
+		// 		script {
+		// 			RAW = sh (returnStdout: true, script:'gcloud compute instances list --format="json"')
+		// 			// echo is working AND getting the correct output
+		// 			echo RAW
+		// 			def text = readJSON text: RAW[0]['cpuPlatform']
+		// 			echo text
+		// 			out = text['cpuPlatform']
+		// 			echo out
+		// 		}
+		// 	}
+		// }
 	}
 }
