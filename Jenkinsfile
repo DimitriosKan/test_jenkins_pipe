@@ -55,6 +55,16 @@ pipeline {
 				}
 			}
 		}
+		stage('Edit file') {
+			steps {
+				script {
+					sh '''
+						sed -e "s/Haswell//g" > "test.txt"
+						cat test.txt
+					'''
+				}
+			}
+		}
 // 				sh (returnStatus: true, script: 'gcloud compute instances list --format="json"')
 		// stage('Test for readJSON text') {
 		// 	steps {
