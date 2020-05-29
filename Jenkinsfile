@@ -36,6 +36,7 @@ pipeline {
 }
 ]
 					'''
+					sh 'cat test.json'
 				}
 			}
 		}
@@ -60,7 +61,7 @@ pipeline {
 			steps {
 				script {
 					sh '''
-						sed -e "s/other//g" "${TEST_FILE}" > "${TEST_FILE}"
+						sed -e "s/other/asdasdasdasdas/g" "${TEST_FILE}"
 						cat "${TEST_FILE}"
 					'''
 				}
