@@ -61,7 +61,7 @@ pipeline {
 			steps {
 				script {
 					sh '''
-						sed -e "s/other//g" "${TEST_FILE}"
+						sed -i -e "s/other//g" "${TEST_FILE}"
 					'''
 				}
 			}
