@@ -11,6 +11,7 @@ pipeline {
 	environment {
 		JSON_FILE = "${WORKSPACE}/Parameters/new-test.json"
 		TYPE = "${params.REQUIRE_TYPE}"
+		TEST_FILE = "${WORKSPACE}/test.txt"
 	}
 	stages {
 		stage('Just a Test Stage') {
@@ -59,7 +60,7 @@ pipeline {
 			steps {
 				script {
 					sh '''
-						sed -e "s/Haswell//g" > "test.txt"
+						sed -e "s/Haswell//g" "${TEST_FILE}" > "${TEST_FILE}"
 						cat test.txt
 					'''
 				}
