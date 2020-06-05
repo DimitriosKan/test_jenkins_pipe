@@ -51,7 +51,7 @@ pipeline {
 				script {
 					def stringname = "daf-prod-something-rds-prod-secrets"
 					def splitstring = stringname.split("-")
-					echo splitstring
+					echo splitstring[1]
 				}
 			}
 		}
