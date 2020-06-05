@@ -46,6 +46,15 @@ pipeline {
 				sh 'pwd'
 			}
 		}
+		stage('Cut up a string') {
+			steps {
+				script {
+					def stringname = "daf-prod-something-rds-prod-secrets"
+					def splitstring = stringname.split("-")
+					echo splitstring
+				}
+			}
+		}
 		stage('Read file') {
 			steps {
 				script {
@@ -66,6 +75,9 @@ pipeline {
 				}
 			}
 		}
+
+
+
 // 				sh (returnStatus: true, script: 'gcloud compute instances list --format="json"')
 		// stage('Test for readJSON text') {
 		// 	steps {
