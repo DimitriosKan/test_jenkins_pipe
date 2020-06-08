@@ -1,10 +1,10 @@
+def awsSecretMasterID = [
+	"mapKey": "mapValue",
+	"anothermapKey": "anothermapValue"
+]
+
 pipeline {
 	agent any
-
-	def awsSecretMasterID = [
-		"mapKey": "mapValue",
-		"anothermapKey": "anothermapValue"
-	]
 
 	parameters {
 		string (
