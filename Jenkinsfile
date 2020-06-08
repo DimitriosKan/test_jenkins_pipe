@@ -2,7 +2,8 @@ pipeline {
 	agent any
 
 	def awsSecretMasterID = [
-		"mapKey": "mapValue"
+		"mapKey": "mapValue",
+		"anothermapKey": "anothermapValue"
 	]
 
 	parameters {
@@ -14,6 +15,7 @@ pipeline {
 
 		choice(
 			choices: [
+			"mapKey",
 			"mapKey"
 			],
 			name: "RDSArnNameSQLSERVER"
