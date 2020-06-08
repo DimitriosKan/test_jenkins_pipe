@@ -95,7 +95,8 @@ pipeline {
 				script {
 					def awsSecretMasterIDValue = "${awsSecretMasterID.awsRDSArnNameSQLSERVER}"
 
-					echo awsSecretMasterIDValue
+					echo "Just choice param: ${awsRDSArnNameSQLSERVER}"
+					echo "Map value: ${awsSecretMasterIDValue}"
 				}
 			}
 		}
