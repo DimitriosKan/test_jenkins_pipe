@@ -16,7 +16,7 @@ pipeline {
 		choice(
 			choices: [
 			"mapKey",
-			"mapKey"
+			"anothermapKey"
 			],
 			name: "RDSArnNameSQLSERVER"
 		)
@@ -93,7 +93,8 @@ pipeline {
 		stage('Mapping Test') {
 			steps {
 				script {
-					def awsSecretMasterIDValue = "${awsSecretMasterID.awsRDSArnNameSQLSERVER}"
+					def awsSecretMasterIDValue = awsSecretMasterID["${awsRDSArnNameSQLSERVER}"]
+					// def awsSecretMasterIDValue = "${awsSecretMasterID.awsRDSArnNameSQLSERVER}"
 
 					echo "Just choice param: ${awsRDSArnNameSQLSERVER}"
 					echo "Map value: ${awsSecretMasterIDValue}"
