@@ -1,8 +1,3 @@
-def awsSecretMasterID = [
-	"mapKey": "mapValue",
-	"anothermapKey": "anothermapValue"
-]
-
 pipeline {
 	agent any
 
@@ -24,6 +19,10 @@ pipeline {
 	}
 	environment {
 		awsRDSArnNameSQLSERVER = "${params.RDSArnNameSQLSERVER}"
+		def awsSecretMasterID = [
+			"mapKey": "mapValue",
+			"anothermapKey": "anothermapValue"
+		]
 		JSON_FILE = "${WORKSPACE}/Parameters/new-test.json"
 		TYPE = "${params.REQUIRE_TYPE}"
 		TEST_FILE = "${WORKSPACE}/test.json"
