@@ -1,14 +1,27 @@
 pipeline {
 	agent any
 
+	def awsSecretMasterID = [
+		"mapKey": "mapValue"
+	]
+
 	parameters {
 		string (
 			defaultValue: "Root",
 			description: "just a parameter for database root",
 			name: "REQUIRE_TYPE"
 			)
+
+		choice(
+			choices: [
+			"mapKey"
+			],
+			name: "RDSArnNameSQLSERVER"
+		)
+
 	}
 	environment {
+		awsRDSArnNameSQLSERVER = "${params.RDSArnNameSQLSERVER}"
 		JSON_FILE = "${WORKSPACE}/Parameters/new-test.json"
 		TYPE = "${params.REQUIRE_TYPE}"
 		TEST_FILE = "${WORKSPACE}/test.json"
@@ -72,6 +85,15 @@ pipeline {
 					sh '''
 						sed -i -e "s/other//g" "${TEST_FILE}"
 					'''
+				}
+			}
+		}
+		stage('Mapping Test') {
+			steps {
+				script {
+					def awsSecretMasterIDValue = "${awsSecretMasterID.awsRDSArnNameSQLSERVER}"
+
+					echo awsSecretMasterIDValue
 				}
 			}
 		}
